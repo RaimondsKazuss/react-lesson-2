@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import React, {useState} from "react"
 
 const NavBar = styled.header`
     //usually 1rem = 16px
@@ -31,17 +32,27 @@ const NavLink = styled(Link)`
 
 const ButtonLink = styled(NavLink)`
     width: 2rem;
-    height: 2rem;
     text-align: center;
 `
 
+const DropDown = styled.div`
+    position: absolute;
+    top: 3.5rem;
+    min-width: 6rem;
+    height: 6rem;
+    background: #f1f1f0;
+`
 const Nav = () => {
+    const [isOpen, setIsOpen] = useState(false)
+
     return (
         <NavBar>
             <Logo href="/"/>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/all-posts">All posts</NavLink>
             <ButtonLink to="/create">+</ButtonLink>
+            <div to="/user" onClick={setIsOpen(!isOpen)}>user</div>
+            { isOpen && (<DropDown>this is a dropdown</DropDown>)}
         </NavBar>
     )
 }

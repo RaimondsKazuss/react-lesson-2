@@ -5,6 +5,7 @@ import AllPosts from "./components/AllPosts/AllPosts";
 import Form from "./components/Form/Form";
 import HomePage from "./components/HomePage/HomePage";
 import Nav from "./components/Nav/Nav";
+import User from "./components/User/User";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/" element={<HomePage/>} />
           <Route exact path="/all-posts" element={<AllPosts/>} />
           <Route exact path="/create" element={<Form/>} />
+          <Route exact path="/user" element={<User/>} />
           <Route exact path="*" element={<div>404</div>} />
         </Routes>        
       </BrowserRouter>
