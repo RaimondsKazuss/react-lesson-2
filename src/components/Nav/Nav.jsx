@@ -3,7 +3,6 @@ import styled from "styled-components"
 import React, {useState} from "react"
 
 const NavBar = styled.header`
-    //usually 1rem = 16px
     position: absolute;
     height: 4rem;
     padding: 1rem;
