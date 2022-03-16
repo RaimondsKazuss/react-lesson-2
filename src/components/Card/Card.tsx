@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Post } from "../interfaces/interfaces";
 
 const StyledCard = styled.div`
     width: 19rem;
@@ -18,18 +19,13 @@ const Description = styled.p`
     overflow: hidden;
 `
 
-
-interface Post {
-    idCategory: string;
-    strCategory: string;
-    strCategoryThumb: string;
-    strCategoryDescription: string;
-}
-
 const Card: React.FC<{data: Post}> = ({data}) => {
 
+    //function return type
+    // const clickHandler = ():void => console.log(data)
+
     return (
-        <StyledCard>
+        <StyledCard onClick={():void => {}}>
             <div>{data.strCategory}</div>
             <Image src={data.strCategoryThumb} alt={data.strCategory}/>
             <Description>{data.strCategoryDescription}</Description>

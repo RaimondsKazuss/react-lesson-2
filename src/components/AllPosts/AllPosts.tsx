@@ -1,24 +1,11 @@
 import { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import ContentContainer from "../ContentContainer/ContentContainer";
-
-interface Post {
-    idCategory: string;
-    strCategory: string;
-    strCategoryThumb: string;
-    strCategoryDescription: string;
-}
+import { Post } from "../interfaces/interfaces";
 
 interface PostArray {
     categories: Post[];
 }
-
-// const emptyPostData = {
-//     idCategory: '',
-//     strCategory: '',
-//     strCategoryThumb: '',
-//     strCategoryDescription: '',
-// }
 
 const AllPosts: React.FC = () => {
     const [postData, setPostData] = useState<PostArray | null>(null)
@@ -36,11 +23,7 @@ const AllPosts: React.FC = () => {
     return (
         <ContentContainer>
             {postData ? (
-                postData.categories.map((post) => {
-                    return (
-                        <Card key={post.idCategory} data={post}/>
-                    )
-                })
+                postData.categories.map((post) => <Card key={post.idCategory} data={post}/>)
             ) : ( <div>loading ...</div> )}
         </ContentContainer>
     )

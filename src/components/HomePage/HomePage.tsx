@@ -1,12 +1,11 @@
-import { React, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../Card/Card";
+import { Post } from "../interfaces/interfaces";
 
 import ContentContainer from "../ContentContainer/ContentContainer"
 
-
-
 const HomePage = () => {
-    const [postData, setPostData] = useState(null)
+    const [postData, setPostData] = useState<Post[] | null>(null)
 
     useEffect(() => {
         fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
@@ -22,7 +21,7 @@ const HomePage = () => {
     return (
         <ContentContainer>
             {postData ? (
-                postData.map((post) => {
+                postData.map((post: Post) => {
                     return (
                         <Card key={post.idCategory} data={post}/>
                     )
