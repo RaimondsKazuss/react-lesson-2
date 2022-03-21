@@ -1,7 +1,8 @@
 import styled from "styled-components"
 import { Post } from "../interfaces/interfaces";
+import { Link, useParams } from "react-router-dom";
 
-const StyledCard = styled.div`
+const StyledCard = styled(Link)`
     width: 19rem;
     height: 19rem;
     text-align: center;
@@ -20,15 +21,13 @@ const Description = styled.p`
 `
 
 const Card: React.FC<{data: Post}> = ({data}) => {
-
-    //function return type
-    // const clickHandler = ():void => console.log(data)
-
+    const {idCategory, strCategory, strCategoryThumb, strCategoryDescription} = data;
+    
     return (
-        <StyledCard onClick={():void => {}}>
-            <div>{data.strCategory}</div>
-            <Image src={data.strCategoryThumb} alt={data.strCategory}/>
-            <Description>{data.strCategoryDescription}</Description>
+        <StyledCard onClick={():void => {}} to={`/categories/${strCategory.toLowerCase()}`}>
+            <div>{strCategory}</div>
+            <Image src={strCategoryThumb} alt={strCategory}/>
+            <Description>{strCategoryDescription}</Description>
         </StyledCard>
     )
 }

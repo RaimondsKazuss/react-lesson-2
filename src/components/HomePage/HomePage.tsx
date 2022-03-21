@@ -4,7 +4,7 @@ import { Post } from "../interfaces/interfaces";
 
 import ContentContainer from "../ContentContainer/ContentContainer"
 
-const HomePage = () => {
+const HomePage:React.FC = () => {
     const [postData, setPostData] = useState<Post[] | null>(null)
 
     useEffect(() => {

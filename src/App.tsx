@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createGlobalStyle } from 'styled-components'
 import './App.css';
 import AllPosts from './components/AllPosts/AllPosts';
+import Categories from './components/Categories/Categories';
 import Form from './components/Form/Form';
 import HomePage from './components/HomePage/HomePage';
 import Nav from './components/Nav/Nav';
@@ -26,6 +27,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/all-posts" element={<AllPosts/>} />
+          <Route path="/categories/:categoryName" element={<Categories/>} />
           <Route path="/create" element={<Form/>} />
           <Route path="*" element={<div>404</div>} />
         </Routes> 
